@@ -18,10 +18,10 @@ public class _06_IPodShuffle implements ActionListener {
 	JButton surpriseMe = new JButton();
 	Random rand = new Random();
 	ArrayList<Song> songs = new ArrayList<>();
-	Song gotHim = new Song("ladies and Gentlmen sound.mp3");
+	Song gotHim;
 	Song togetherNow;
 	Song begoneThots;
-	Song Deutschland;
+	Song Amerika;
 
 	public _06_IPodShuffle() {
 		// 1. Use the Song class the play the demo.mp3 file.
@@ -32,20 +32,26 @@ public class _06_IPodShuffle implements ActionListener {
 			 * you're really cool, you can stop all the songs, before playing a new one on
 			 * subsequent button clicks.
 			 */
-		Deutschland = new Song("https://www.youtube.com/watch?v=bAORrEZJsaI");
-		begoneThots = new Song("https://www.youtube.com/watch?v=W6VpbMm-n5Q");
+		Amerika = new Song("https://www.youtube.com/watch?v=bAORrEZJsaI");
+		begoneThots = new Song("Be Gone Thot!.mp3");
 		togetherNow = new Song("https://www.youtube.com/watch?v=73lj5qJbrms");
 		gotHim = new Song("ladies and Gentlmen sound.mp3");
+		
 	}
 
 	private void run() {
+		Amerika.play();
 		surpriseMe.addActionListener(this);
 		addSongs();
+		frame.setVisible(true);
 		randomSong();
+		frame.setSize(400, 400);
+		surpriseMe.setText("Shuffle Play");
 		frame.add(panel);
 		panel.add(surpriseMe);
 		frame.setTitle("IPod Shuffle");
 		frame.pack();
+		frame.setDefaultCloseOperation(3);
 	}
 
 	private void randomSong() {
@@ -57,7 +63,7 @@ public class _06_IPodShuffle implements ActionListener {
 		songs.add(gotHim);
 		songs.add(togetherNow);
 		songs.add(begoneThots);
-		songs.add(Deutschland);
+		songs.add(Amerika);
 
 	}
 
