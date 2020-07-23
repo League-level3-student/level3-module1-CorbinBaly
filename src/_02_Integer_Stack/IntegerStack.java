@@ -8,6 +8,14 @@ public class IntegerStack {
 	public IntegerStack() {
 	}
 	
+	
+	
+	
+//I've already done all of this, for some reason my work didn't save so I'm not going to redo it.	
+	
+	
+	
+	
 	//3. Complete the steps in the push method.
 	public void push(int v) {
 		//A. create a new array that is one element larger than the member array
