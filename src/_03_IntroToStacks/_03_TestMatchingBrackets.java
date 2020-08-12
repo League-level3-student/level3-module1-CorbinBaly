@@ -21,18 +21,39 @@ public class _03_TestMatchingBrackets {
 
 	// USE A STACK TO COMPLETE THE METHOD FOR CHECKING IF EVERY OPENING BRACKET HAS
 	// A MATCHING CLOSING BRACKET
+
 	private boolean doBracketsMatch(String b) {
 		int openbracketAmount = 0;
-		for (int i = 0; i < b.length() - 1; i++) {
-			if ((b.charAt(i) + "").equals("{")) {
+		boolean completed = false;
+
+		// adding them to the stack
+
+		for (int i = 0; i < b.length(); i++) {
+			if((brackets.pop() + "").equals("{")) {
+				brackets.push("{");
+			}
+			else if()
+		}
+
+		// Checking if they're completed
+		
+		for (int i = 0; i < b.length(); i++) {
+			if (brackets.pop().equals("{")) {
 				openbracketAmount++;
 			}
 
+			else if (brackets.pop().equals("}") && openbracketAmount != 0) {
+				openbracketAmount--;
+		
+			} else if ((brackets.search(i) + "").equals("}") && openbracketAmount == 0) {
+				completed = false;
+			}
+
 		}
-		for (int i = 0; i <= openbracketAmount-1; i++) {
-			
+		for (int i = 0; i < brackets.size(); i++) {
+			System.out.println(brackets.get(i));
 		}
-		return false;
+		return completed;
 	}
 
 }
