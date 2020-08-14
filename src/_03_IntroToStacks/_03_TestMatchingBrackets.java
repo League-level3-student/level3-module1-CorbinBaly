@@ -28,30 +28,19 @@ public class _03_TestMatchingBrackets {
 
 		// adding them to the stack
 
-		for (int i = 0; i < b.length(); i++) {
-			if((brackets.pop() + "").equals("{")) {
+		for (int i = 0; i <= b.length() - 1; i++) {
+			if ((b.charAt(i) + "").equals("{")) {
 				brackets.push("{");
-			}
-			else if()
-		}
-
-		// Checking if they're completed
-		
-		for (int i = 0; i < b.length(); i++) {
-			if (brackets.pop().equals("{")) {
 				openbracketAmount++;
-			}
-
-			else if (brackets.pop().equals("}") && openbracketAmount != 0) {
+			} else if ((b.charAt(i) + "").equals("}") && openbracketAmount != 0) {
 				openbracketAmount--;
-		
-			} else if ((brackets.search(i) + "").equals("}") && openbracketAmount == 0) {
-				completed = false;
+			} else if (brackets.get(i).equals("}") && openbracketAmount == 0) {
+				return completed;
 			}
-
+			// else if()
 		}
-		for (int i = 0; i < brackets.size(); i++) {
-			System.out.println(brackets.get(i));
+		if (openbracketAmount == 0) {
+			completed = true;
 		}
 		return completed;
 	}
