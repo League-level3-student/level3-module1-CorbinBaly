@@ -20,6 +20,8 @@ public class HangMan implements KeyListener {
 	ArrayList<String> userAnswer = new ArrayList<String>();
 	ArrayList<String> realAnswer = new ArrayList<String>();
 	String guessText = "";
+	String currentWord = "";
+	
 
 	public void run() {
 		something();
@@ -38,18 +40,25 @@ public class HangMan implements KeyListener {
 	}
 
 	private void labelUpdating() {
-		for (int i = 0; i < words.peek().length(); i++) {
+		for (int i = 0; i < currentWord.length(); i++) {
 			guessText = guessText + userAnswer.get(i);
 		}
 	}
 
 	private void labelCreating() {
 		// Label Stuff
-		String actualText = words.peek();
-		for (int i = 0; i < actualText.length(); i++) {
+		currentWord = words.pop();
+		
+		for (int i = 0; i < currentWord.length(); i++) {
+			//Making userAnswer
 			userAnswer.add("_");
 			guessText = guessText + userAnswer.get(i);
-		}
+			System.out.println();
+			//Making realAnswer
+			realAnswer.add(currentWord.charAt(i)+"");
+			System.out.println(realAnswer.get(i));
+		}		
+		label.setText(guessText);
 
 		// label.setText(guessText);
 	}
@@ -63,10 +72,10 @@ public class HangMan implements KeyListener {
 			} else {
 				// if it's not in stack then it's pushed
 				words.push(tool.readRandomLineFromFile("dictionary.txt"));
-				System.out.println(i);
 			}
 
 		}
+		
 	}
 
 	public static void main(String[] args) {
@@ -77,11 +86,12 @@ public class HangMan implements KeyListener {
 	public void keyPressed(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 		System.out.println(arg0.getKeyCode());
-		for (int i = 0; i < words.peek().length(); i++) {
-			if(arg0.getKeyChar()+""=="s") {
-			//Fix this	
+		for (int i = 0; i <currentWord.length(); i++) {
+			if(arg0.getKeyChar()+""==realAnswer.get(i)) {
+		//	System.out.println(realAnswer.get(i));
 			}
 		}
+		//System.out.println(arg0.getKeyChar());
 		labelUpdating();
 	}
 
